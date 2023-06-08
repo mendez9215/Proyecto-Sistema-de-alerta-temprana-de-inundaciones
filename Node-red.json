@@ -1,0 +1,339 @@
+[
+    {
+        "id": "0422b1f2273091d9",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e1a60cba831fae02",
+        "type": "mqtt in",
+        "z": "0422b1f2273091d9",
+        "name": "",
+        "topic": "canal",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "e66e14f77389ccf1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 230,
+        "y": 280,
+        "wires": [
+            [
+                "d379ecc061fe5477",
+                "914317bb337c968b",
+                "9ed36bc25815e60d"
+            ]
+        ]
+    },
+    {
+        "id": "914317bb337c968b",
+        "type": "function",
+        "z": "0422b1f2273091d9",
+        "name": "temperatura",
+        "func": "msg.payload = msg.payload.split(\",\")\nmsg.payload = msg.payload[0]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 180,
+        "wires": [
+            [
+                "0e4eafe403263c49",
+                "d95050ee652ed9ef"
+            ]
+        ]
+    },
+    {
+        "id": "d379ecc061fe5477",
+        "type": "function",
+        "z": "0422b1f2273091d9",
+        "name": "humedad",
+        "func": "msg.payload = msg.payload.split(\",\")\nmsg.payload = msg.payload[1]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 280,
+        "wires": [
+            [
+                "2694a9ac4580f973",
+                "8d182adb689cfb52"
+            ]
+        ]
+    },
+    {
+        "id": "9ed36bc25815e60d",
+        "type": "function",
+        "z": "0422b1f2273091d9",
+        "name": "distancia",
+        "func": "msg.payload = msg.payload.split(\",\")\nmsg.payload = msg.payload[2]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 380,
+        "wires": [
+            [
+                "fd9c756212bcdb68",
+                "efc9950864c501da",
+                "0ef452b843df69f5"
+            ]
+        ]
+    },
+    {
+        "id": "0e4eafe403263c49",
+        "type": "ui_gauge",
+        "z": "0422b1f2273091d9",
+        "name": "",
+        "group": "a2be31ede64b1ff8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "25",
+        "seg2": "35",
+        "diff": false,
+        "className": "",
+        "x": 630,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "2694a9ac4580f973",
+        "type": "ui_gauge",
+        "z": "0422b1f2273091d9",
+        "name": "",
+        "group": "a2be31ede64b1ff8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humedad",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "35",
+        "seg2": "70",
+        "diff": false,
+        "className": "",
+        "x": 620,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "8d182adb689cfb52",
+        "type": "mqtt out",
+        "z": "0422b1f2273091d9",
+        "name": "",
+        "topic": "humedad",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e66e14f77389ccf1",
+        "x": 620,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "fd9c756212bcdb68",
+        "type": "ui_gauge",
+        "z": "0422b1f2273091d9",
+        "name": "",
+        "group": "5699deb4595692a5",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Nivel de Agua",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 640,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "d95050ee652ed9ef",
+        "type": "mqtt out",
+        "z": "0422b1f2273091d9",
+        "name": "",
+        "topic": "temperatura",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e66e14f77389ccf1",
+        "x": 630,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "efc9950864c501da",
+        "type": "mqtt out",
+        "z": "0422b1f2273091d9",
+        "name": "",
+        "topic": "distancia",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e66e14f77389ccf1",
+        "x": 620,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "d571798bcb455b4e",
+        "type": "ui_led",
+        "z": "0422b1f2273091d9",
+        "order": 3,
+        "group": "5699deb4595692a5",
+        "width": "5",
+        "height": "3",
+        "label": "Alerta",
+        "labelPlacement": "left",
+        "labelAlignment": "center",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": false,
+        "name": "",
+        "x": 790,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "0ef452b843df69f5",
+        "type": "function",
+        "z": "0422b1f2273091d9",
+        "name": "Alerta",
+        "func": "if (msg.payload > 10) {\n    msg.payload = true\n}\nelse {\n    msg.payload = false\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 440,
+        "wires": [
+            [
+                "d571798bcb455b4e"
+            ]
+        ]
+    },
+    {
+        "id": "e66e14f77389ccf1",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.mqttdashboard.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "a2be31ede64b1ff8",
+        "type": "ui_group",
+        "name": "Sensores",
+        "tab": "cf4290333d0ce23f",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5699deb4595692a5",
+        "type": "ui_group",
+        "name": "Nivel de Agua",
+        "tab": "cf4290333d0ce23f",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "cf4290333d0ce23f",
+        "type": "ui_tab",
+        "name": "Proyecto",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

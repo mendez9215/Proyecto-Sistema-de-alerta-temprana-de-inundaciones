@@ -1,0 +1,927 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": 1,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        "collapsed": false,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "id": 8,
+        "panels": [],
+        "title": "Datos de la Temperatura y Humedad",
+        "type": "row"
+      },
+      {
+        "datasource": {
+          "type": "redis-datasource",
+          "uid": "cc8ecbee-63b8-4c3d-b871-44c9373a6c0b"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "max": 50,
+            "min": 0,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 30
+                }
+              ]
+            },
+            "unit": "celsius"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 6,
+          "x": 0,
+          "y": 1
+        },
+        "id": 3,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
+        },
+        "pluginVersion": "9.5.2",
+        "targets": [
+          {
+            "command": "ts.get",
+            "datasource": {
+              "type": "redis-datasource",
+              "uid": "cc8ecbee-63b8-4c3d-b871-44c9373a6c0b"
+            },
+            "keyName": "temperatura",
+            "query": "",
+            "refId": "A",
+            "streaming": true,
+            "type": "timeSeries"
+          }
+        ],
+        "title": "Temperatura",
+        "type": "gauge"
+      },
+      {
+        "datasource": {
+          "type": "redis-datasource",
+          "uid": "cc8ecbee-63b8-4c3d-b871-44c9373a6c0b"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 0,
+            "mappings": [],
+            "max": 99,
+            "min": 0,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "percent"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 6,
+          "x": 6,
+          "y": 1
+        },
+        "id": 5,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
+        },
+        "pluginVersion": "9.5.2",
+        "targets": [
+          {
+            "command": "ts.get",
+            "datasource": {
+              "type": "redis-datasource",
+              "uid": "cc8ecbee-63b8-4c3d-b871-44c9373a6c0b"
+            },
+            "keyName": "humedad",
+            "query": "",
+            "refId": "A",
+            "streaming": true,
+            "type": "timeSeries"
+          }
+        ],
+        "title": "Humedad",
+        "type": "gauge"
+      },
+      {
+        "datasource": {
+          "type": "redis-datasource",
+          "uid": "cc8ecbee-63b8-4c3d-b871-44c9373a6c0b"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "max": 50,
+            "min": 0,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "celsius"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 1
+        },
+        "id": 1,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "command": "ts.get",
+            "datasource": {
+              "type": "redis-datasource",
+              "uid": "cc8ecbee-63b8-4c3d-b871-44c9373a6c0b"
+            },
+            "keyName": "temperatura",
+            "query": "",
+            "refId": "A",
+            "streaming": true,
+            "type": "timeSeries"
+          }
+        ],
+        "title": "Temperatura",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "redis-datasource",
+          "uid": "cc8ecbee-63b8-4c3d-b871-44c9373a6c0b"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "max": 100,
+            "min": 0,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 9
+        },
+        "id": 7,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "command": "ts.get",
+            "datasource": {
+              "type": "redis-datasource",
+              "uid": "cc8ecbee-63b8-4c3d-b871-44c9373a6c0b"
+            },
+            "keyName": "temperatura",
+            "query": "",
+            "refId": "A",
+            "streaming": true,
+            "type": "timeSeries"
+          },
+          {
+            "command": "ts.get",
+            "datasource": {
+              "type": "redis-datasource",
+              "uid": "cc8ecbee-63b8-4c3d-b871-44c9373a6c0b"
+            },
+            "hide": false,
+            "keyName": "humedad",
+            "query": "",
+            "refId": "B",
+            "streaming": true,
+            "type": "timeSeries"
+          }
+        ],
+        "title": "Temperatura y Humedad",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "redis-datasource",
+          "uid": "cc8ecbee-63b8-4c3d-b871-44c9373a6c0b"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "percent"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 9
+        },
+        "id": 4,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "command": "ts.get",
+            "datasource": {
+              "type": "redis-datasource",
+              "uid": "cc8ecbee-63b8-4c3d-b871-44c9373a6c0b"
+            },
+            "keyName": "humedad",
+            "query": "",
+            "refId": "A",
+            "streaming": true,
+            "type": "timeSeries"
+          }
+        ],
+        "title": "Humedad",
+        "type": "timeseries"
+      },
+      {
+        "collapsed": false,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 17
+        },
+        "id": 9,
+        "panels": [],
+        "title": "Nivel de Agua",
+        "type": "row"
+      },
+      {
+        "datasource": {
+          "type": "redis-datasource",
+          "uid": "cc8ecbee-63b8-4c3d-b871-44c9373a6c0b"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "max": 30,
+            "min": 0,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green"
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 9,
+          "w": 24,
+          "x": 0,
+          "y": 18
+        },
+        "id": 6,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "command": "ts.get",
+            "datasource": {
+              "type": "redis-datasource",
+              "uid": "cc8ecbee-63b8-4c3d-b871-44c9373a6c0b"
+            },
+            "keyName": "distancia",
+            "query": "",
+            "refId": "A",
+            "streaming": true,
+            "type": "timeSeries"
+          }
+        ],
+        "title": "Nivel del Agua",
+        "type": "timeseries"
+      },
+      {
+        "collapsed": false,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 27
+        },
+        "id": 10,
+        "panels": [],
+        "title": "Tabla",
+        "type": "row"
+      },
+      {
+        "datasource": {
+          "type": "redis-datasource",
+          "uid": "cc8ecbee-63b8-4c3d-b871-44c9373a6c0b"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "custom": {
+              "align": "left",
+              "cellOptions": {
+                "type": "auto"
+              },
+              "filterable": true,
+              "inspect": true,
+              "minWidth": 50
+            },
+            "decimals": 1,
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green"
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "none"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "#time"
+              },
+              "properties": [
+                {
+                  "id": "custom.hidden",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "value"
+              },
+              "properties": [
+                {
+                  "id": "custom.hidden",
+                  "value": false
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 8,
+          "x": 0,
+          "y": 28
+        },
+        "id": 11,
+        "options": {
+          "cellHeight": "sm",
+          "footer": {
+            "countRows": false,
+            "enablePagination": false,
+            "fields": [
+              "value"
+            ],
+            "reducer": [
+              "sum"
+            ],
+            "show": false
+          },
+          "frameIndex": 1,
+          "showHeader": true,
+          "sortBy": []
+        },
+        "pluginVersion": "9.5.2",
+        "targets": [
+          {
+            "command": "ts.get",
+            "datasource": {
+              "type": "redis-datasource",
+              "uid": "cc8ecbee-63b8-4c3d-b871-44c9373a6c0b"
+            },
+            "field": "",
+            "keyName": "temperatura",
+            "query": "",
+            "refId": "Temperatura",
+            "streaming": true,
+            "streamingDataType": "TimeSeries",
+            "type": "timeSeries"
+          }
+        ],
+        "title": "Datos de Temperatura",
+        "type": "table"
+      },
+      {
+        "datasource": {
+          "type": "redis-datasource",
+          "uid": "cc8ecbee-63b8-4c3d-b871-44c9373a6c0b"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "custom": {
+              "align": "left",
+              "cellOptions": {
+                "type": "auto"
+              },
+              "filterable": true,
+              "inspect": true,
+              "minWidth": 50
+            },
+            "decimals": 1,
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green"
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "none"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "#time"
+              },
+              "properties": [
+                {
+                  "id": "custom.hidden",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "value"
+              },
+              "properties": [
+                {
+                  "id": "custom.hidden",
+                  "value": false
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 8,
+          "x": 8,
+          "y": 28
+        },
+        "id": 12,
+        "options": {
+          "cellHeight": "sm",
+          "footer": {
+            "countRows": false,
+            "enablePagination": false,
+            "fields": [
+              "value"
+            ],
+            "reducer": [
+              "sum"
+            ],
+            "show": false
+          },
+          "frameIndex": 1,
+          "showHeader": true,
+          "sortBy": []
+        },
+        "pluginVersion": "9.5.2",
+        "targets": [
+          {
+            "command": "ts.get",
+            "datasource": {
+              "type": "redis-datasource",
+              "uid": "cc8ecbee-63b8-4c3d-b871-44c9373a6c0b"
+            },
+            "field": "",
+            "keyName": "humedad",
+            "query": "",
+            "refId": "Temperatura",
+            "streaming": true,
+            "streamingDataType": "TimeSeries",
+            "type": "timeSeries"
+          }
+        ],
+        "title": "Datos de Humedad",
+        "type": "table"
+      },
+      {
+        "datasource": {
+          "type": "redis-datasource",
+          "uid": "cc8ecbee-63b8-4c3d-b871-44c9373a6c0b"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "custom": {
+              "align": "left",
+              "cellOptions": {
+                "type": "auto"
+              },
+              "filterable": true,
+              "inspect": true,
+              "minWidth": 50
+            },
+            "decimals": 1,
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green"
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "none"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "#time"
+              },
+              "properties": [
+                {
+                  "id": "custom.hidden",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "value"
+              },
+              "properties": [
+                {
+                  "id": "custom.hidden",
+                  "value": false
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 8,
+          "x": 16,
+          "y": 28
+        },
+        "id": 13,
+        "options": {
+          "cellHeight": "sm",
+          "footer": {
+            "countRows": false,
+            "enablePagination": false,
+            "fields": [
+              "value"
+            ],
+            "reducer": [
+              "sum"
+            ],
+            "show": false
+          },
+          "frameIndex": 1,
+          "showHeader": true,
+          "sortBy": []
+        },
+        "pluginVersion": "9.5.2",
+        "targets": [
+          {
+            "command": "ts.get",
+            "datasource": {
+              "type": "redis-datasource",
+              "uid": "cc8ecbee-63b8-4c3d-b871-44c9373a6c0b"
+            },
+            "field": "",
+            "keyName": "distancia",
+            "query": "",
+            "refId": "Temperatura",
+            "streaming": true,
+            "streamingDataType": "TimeSeries",
+            "type": "timeSeries"
+          }
+        ],
+        "title": "Datos del Nivel del Agua",
+        "type": "table"
+      }
+    ],
+    "refresh": "",
+    "schemaVersion": 38,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-5m",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "proyecto",
+    "uid": "fe5de99f-fb49-4b37-91a5-7dbadfdf04c3",
+    "version": 5,
+    "weekStart": ""
+  }
